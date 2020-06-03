@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 });
 
 
-
+//Callback function
 app.get('/oauth-callback', (req, res) => {
   const body = {
     client_id: clientId,
@@ -26,7 +26,7 @@ app.get('/oauth-callback', (req, res) => {
     then(_token => {
       console.log('My token:', token);
       token = _token;
-      res.json({ ok: 1 });
+      res.json({ message: 'Authentication successful' });
     }).
     catch(err => res.status(500).json({ message: err.message }));
 });
